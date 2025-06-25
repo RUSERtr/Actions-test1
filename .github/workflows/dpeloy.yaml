@@ -1,0 +1,16 @@
+name: deployment
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  deploy-echo:
+    runs-on: ubuntu-latest
+    steps:
+    name:checkout
+      uses: actions/checkout@v4
+    run: echo "Hello, World!"
+    run: echo "Esto es un mensaje de prueba"
+    run: echo "testeo del actions"
+    run: echo "MENSAJES ENVIADOS CON EXITO"
