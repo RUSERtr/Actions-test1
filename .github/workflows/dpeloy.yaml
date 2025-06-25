@@ -8,8 +8,7 @@ jobs:
   deploy-echo:
     runs-on: ubuntu-latest
     steps:
-    name: checkout
-      uses: actions/checkout@v4
+    uses:  actions/checkout@v4 
     run: echo "Hello, World!"
     run: echo "Esto es un mensaje de prueba"
     run: echo "testeo del actions"
