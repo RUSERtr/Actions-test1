@@ -1,1 +1,1 @@
-Working, testing and learnign GITHUB ACTIONS :)
+Working, testing and learning GITHUB ACTIONS
