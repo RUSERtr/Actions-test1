@@ -8,9 +8,9 @@ jobs:
   develop:
     runs-on: ubuntu-latest
     steps:
-    uses:actions/node@v4
-      with
-        node-version: '18'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
         
   deploy-echo:
     needs: develop
