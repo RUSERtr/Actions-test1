@@ -5,7 +5,15 @@ on:
     branches: ["main"]
 
 jobs:
+  develop:
+    runs-on: ubuntu-latest
+    steps:
+    uses:actions/node@v4
+      with
+        node-version: '18'
+        
   deploy-echo:
+    needs: develop
     runs-on: ubuntu-latest
     steps:
       - uses:  actions/checkout@v4 
@@ -13,3 +21,5 @@ jobs:
       - run: echo "Esto es un mensaje de prueba"
       - run: echo "testeo del actions"
       - run: echo "MENSAJES ENVIADOS CON EXITO"
+
+
