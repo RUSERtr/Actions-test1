@@ -1,0 +1,27 @@
+name: Workflow step
+
+on: [push]
+
+jobs:
+  first_job:
+    name: forced-error
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Cd a directorio
+        uses: actions/checkout@v3
+
+      - name: HOLA MUNDO
+        run: echo "HOLA MUNDO"
+      
+      - name: forzar error
+        run: exit 1
+
+  second_job:
+      runs-on: ubuntu-latest
+      if: always()
+      needs: first_job
+
+      steps:
+        - name: PRUEBA DE EJECUCION SIN IMPORTAR FALLO
+          run: echo "job se ejecuta a pesar de que hay error"

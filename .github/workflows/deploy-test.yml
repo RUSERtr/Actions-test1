@@ -1,0 +1,53 @@
+name: Deploy to server
+
+on: push
+
+jobs:
+  first_job:
+    name: Primer Job 
+    runs-on: ubuntu-latest
+
+    outputs:
+      salida: ${{ steps.step_1.outputs.my_variable }}
+
+    steps:
+      - name: Generar archivo
+        run: |
+          echo "Archivo prueba, hola" >> test.log
+
+      - name: Subir artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: archivo-test
+          path: test.log
+
+  segundo_job:
+    runs-on: ubuntu-latest
+    needs: first_job
+
+    steps:
+      - name: Descargar artefacto
+        uses: actions/download-artifact@v4
+        with:
+          name: archivo-test
+
+      - name: Cat file
+        run: cat test.log
+
+  test-matrix:
+    name: Test en Matrix Node/OS
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node: [16, 18, 20]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Instalar dependencias
+        run: npm install
+      - name: Ejecutar tests
+        run: npm test
