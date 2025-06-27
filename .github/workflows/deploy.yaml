@@ -3,11 +3,13 @@ name: deployment
 on:
   push:
     branches: ["main"]
+  workflow_dispatch:
 
 jobs:
   develop:
     runs-on: ubuntu-latest
     steps:
+      - run: ls -al
       - uses: actions/setup-node@v4
         with:
           node-version: '18'
@@ -15,7 +17,7 @@ jobs:
   deploy-echo:
     needs: develop
     runs-on: ubuntu-latest
-    steps:
+    steps: 
       - uses:  actions/checkout@v4 
       - run: echo "Hello, World!"
       - run: echo "Esto es un mensaje de prueba"
