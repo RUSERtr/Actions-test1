@@ -1,0 +1,24 @@
+{
+  "name": "github-actions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RUSERtr/Actions-test1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/RUSERtr/Actions-test1/issues"
+  },
+  "homepage": "https://github.com/RUSERtr/Actions-test1#readme",
+  "devDependencies": {
+    "jest": "^30.0.3"
+  }
+}
