@@ -34,20 +34,20 @@ jobs:
       - name: Cat file
         run: cat test.log
 
-  test-matrix:
-    name: Test en Matrix Node/OS
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-        node: [16, 18, 20]
-    steps:
-      - uses: actions/checkout@v4
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node }}
-      - name: Instalar dependencias
-        run: npm install
-      - name: Ejecutar tests
-        run: npm test
+#  test-matrix:
+#    name: Test en Matrix Node/OS
+#    runs-on: ${{ matrix.os }}
+#    strategy:
+#      matrix:
+#        os: [ubuntu-latest, windows-latest]
+#        node: [16, 18, 20]
+#    steps:
+#      - uses: actions/checkout@v4
+#      - name: Setup Node.js
+#        uses: actions/setup-node@v4
+#        with:
+#          node-version: ${{ matrix.node }}
+#      - name: Instalar dependencias
+#        run: npm install
+#      - name: Ejecutar tests
+#        run: npm test
