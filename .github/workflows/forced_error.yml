@@ -15,7 +15,7 @@ jobs:
         run: echo "HOLA MUNDO"
       
       - name: forzar error
-        run: exit 1
+        run: echo "ya no fuerza error"
 
   second_job:
       runs-on: ubuntu-latest
